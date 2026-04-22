@@ -8,11 +8,11 @@ This is a **data repository**, not a code project. It hosts elementary flow list
 
 ## Commands
 
-No build, lint, or test commands exist. Git is the only tooling. Note that `*.xlsx` and `*.xls` are tracked via **Git LFS** (see `.gitattributes`); ensure `git lfs` is installed before cloning or committing spreadsheets, otherwise large files will be stored as pointer stubs.
+No build, lint, or test commands exist. Git is the only tooling. Note that `*.xlsx` and `*.xls` are tracked via **Git LFS** (see `.gitattributes`). Install Git LFS before cloning or committing spreadsheets — without it, existing LFS-tracked files check out as small pointer text files (not real spreadsheets), and new commits can bypass LFS and store full binaries directly in Git history. Run `git lfs install` once per machine, and `git lfs pull` on an existing clone to materialize the actual files.
 
 ## Repository layout
 
-Four top-level content areas, each with its own README:
+Four top-level content areas (most have a `README.md`; `Documentation/` has a near-empty `Read me` file):
 
 - **`Formats/`** — canonical schema definitions for the two data artifact types:
   - `FlowList.md` / `FlowList.csv` — schema + empty template for a flow list. Required columns: `Flowable`, `Unit`, `Class`, `Context`, `Flow UUID`. Optional: `CAS No`, `Formula`, `Synonyms`, `External Reference`, `Preferred` (0/1), `AltUnit`, `AltUnitConversionFactor`. Flow list filenames use the list acronym + version (e.g. `IDEAv1.csv`).
